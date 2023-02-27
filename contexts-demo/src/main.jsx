@@ -7,26 +7,24 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-const [city, setCity] = useState("");
-const [timezone, setTimezone] = useState("");
-
 function getCity() { 
+const [city, setCity] = useState("");
   fetch('/session-data')
   .then(response => response.json()
   .then(data => {
   setCity(data.city);
   }))
 }
-getCity();
 
-function getTimezone() {
+
+function getTimezone(timezone) {
+  const [timezone, setTimezone] = useState("");
   fetch('/session-data')
   .then(response => response.json()
   .then(data => {
   setTimezone(data.timezone);
   }))
 }
-getTimezone();
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
@@ -37,8 +35,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: city,
-      timezone: timezone,
+      city: getCity(),
+      timezone: getTimezone(),
     },
     "device": {
       key: uuid(),
