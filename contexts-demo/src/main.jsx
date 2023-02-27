@@ -6,16 +6,6 @@ import {withLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
-function sessionData() {
-    const response = fetch('/session-data');
-    const city = response[1];
-    const timezone = response[3]; 
-    return (city, timezone);
-}
-
-sessionData();
-console.log(city, timezone);
-
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/naming-convention
@@ -25,8 +15,20 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: city,
-      timezone: timezone,
+      city: fetch('/session-data')
+            .then(response => response.json()
+            .then(data => {
+              let city = data[1];
+              console.log(city);
+              return city;
+            })),
+      timezone: fetch('/session-data')
+            .then(response => response.json()
+            .then(data => {
+              let timezone = data[3];
+              console.log(timezone);
+              return timezone;
+            })),
     },
     "device": {
       key: uuid(),
