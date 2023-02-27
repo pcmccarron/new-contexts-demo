@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
@@ -7,8 +7,8 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-const [city, setCity] = React.useState("");
-const [timezone, setTimezone] = React.useState("");
+const [city, setCity] = useState("");
+const [timezone, setTimezone] = useState("");
 
 function getCity() { 
   fetch('/session-data')
