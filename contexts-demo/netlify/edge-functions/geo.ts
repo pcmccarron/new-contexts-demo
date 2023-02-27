@@ -1,4 +1,4 @@
-import type { Context } from "https://edge.netlify.com/";
+import type { Config, Context } from "https://edge.netlify.com/";
 
 export default async (request: Request, context: Context) => {
   return Response.json({
@@ -6,3 +6,4 @@ export default async (request: Request, context: Context) => {
     header: request.headers.get("x-nf-geo")
   });
 };
+export const config: Config = {path: "/session-data"}

@@ -15,11 +15,11 @@ const LDProvider = withLDProvider({
 		"kind": "multi",
     "session": {
       key: uuid(),
-      city: fetch('/city')
+      city: fetch('/session-data')
            .then(response => 
            response.text(geo?.city)
            ),
-      timezone: fetch('/city')
+      timezone: fetch('/session-data')
                 .then(response =>
                   response.json(geo?.timezone)
                 ),
