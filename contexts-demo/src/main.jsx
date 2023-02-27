@@ -18,7 +18,7 @@ const LDProvider = withLDProvider({
       city: fetch('/session-data')
             .then(response => response.json()
             .then(data => {
-              let city = data["city"];
+              let city = data.city;
               console.log(city);
               return city;
             })),
