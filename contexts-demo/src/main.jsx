@@ -17,7 +17,7 @@ const [city, setCity] = useState("");
 }
 
 
-function getTimezone(timezone) {
+function getTimezone() {
   const [timezone, setTimezone] = useState("");
   fetch('/session-data')
   .then(response => response.json()
