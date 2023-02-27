@@ -18,14 +18,14 @@ const LDProvider = withLDProvider({
       city: fetch('/session-data')
             .then(response => response.json()
             .then(data => {
-              let city = data[1];
+              city = data.city;
               console.log(city);
               return city;
             })),
       timezone: fetch('/session-data')
             .then(response => response.json()
             .then(data => {
-              let timezone = data[3];
+              timezone = data[3];
               console.log(timezone);
               return timezone;
             })),
