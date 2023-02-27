@@ -10,7 +10,7 @@ import {browserName, osName} from 'react-device-detect'
 const [city, setCity] = React.useState("");
 const [timezone, setTimezone] = React.useState("");
 
-const getCity = async() => { 
+function getCity() { 
   fetch('/session-data')
   .then(response => response.json()
   .then(data => {
@@ -19,7 +19,7 @@ const getCity = async() => {
 }
 getCity();
 
-const getTimezone = async() => {
+function getTimezone() {
   fetch('/session-data')
   .then(response => response.json()
   .then(data => {
