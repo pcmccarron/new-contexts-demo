@@ -13,4 +13,4 @@ status = 200
 
 [[edge_functions]]
 path = "/geo"
-function = geo
+function = "geo"
