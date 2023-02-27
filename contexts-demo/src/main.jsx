@@ -25,8 +25,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: sessionData["city"],
-      timezone: sessionData["timezone"],
+      city: sessionData[1],
+      timezone: sessionData[3],
     },
     "device": {
       key: uuid(),
