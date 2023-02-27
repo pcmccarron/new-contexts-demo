@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
@@ -8,22 +8,25 @@ import {browserName, osName} from 'react-device-detect'
 
 //get location data
 function getCity() { 
-const [city, setCity] = useState("");
+const [city, setCity] = useState([]);
+useEffect(() => {
   fetch('/session-data')
   .then(response => response.json()
   .then(data => {
   setCity(data.city);
   }))
+})
 }
 
-
 function getTimezone() {
-  const [timezone, setTimezone] = useState("");
+  const [timezone, setTimezone] = useState([]);
+  useEffect(() => {
   fetch('/session-data')
-  .then(response => response.json()
+  .then(response => response.text()
   .then(data => {
   setTimezone(data.timezone);
   }))
+})
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
