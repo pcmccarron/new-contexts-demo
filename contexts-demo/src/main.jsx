@@ -19,16 +19,14 @@ const LDProvider = withLDProvider({
             .then(response => response.json()
             .then(data => {
               let city = data.city;
-              console.log(city);
               return city;
-            })),
+            })), city,
       timezone: fetch('/session-data')
             .then(response => response.json()
             .then(data => {
               let timezone = data.timezone;
-              console.log(timezone);
               return timezone;
-            })),
+            })), timezone,
     },
     "device": {
       key: uuid(),
