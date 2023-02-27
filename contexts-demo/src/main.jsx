@@ -34,12 +34,10 @@ const LDProvider = withLDProvider({
       description: "a randomly generated account number"
     }
 	}
-});
+})(App);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <LDProvider>
-    <App />
-    </LDProvider>
+    <LDProvider />
   </React.StrictMode>,
-)();
+);
