@@ -1,10 +1,28 @@
-import React, {useEffect, useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import {withLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
+
+//get location data
+const getCity = async() => { 
+  fetch('/session-data')
+  .then(response => response.json()
+  .then(data => {
+  let city = data.city;
+  console.log(city);
+  }))
+}
+
+const getTimezone = async() => {
+  fetch('/session-data')
+  .then(response => response.json()
+  .then(data => {
+  let timezone = data.timezone;
+  console.log(timezone);
+  }))
+}
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
@@ -15,18 +33,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: fetch('/session-data')
-            .then(response => response.json()
-            .then(data => {
-              let city = data.city;
-              return city;
-            })), city,
-      timezone: fetch('/session-data')
-            .then(response => response.json()
-            .then(data => {
-              let timezone = data.timezone;
-              return timezone;
-            })), timezone,
+      city: getCity(),
+      timezone: getTimezone(),
     },
     "device": {
       key: uuid(),
