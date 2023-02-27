@@ -8,10 +8,10 @@ import {browserName, osName} from 'react-device-detect'
 
 //get location data
 function getCity() { 
-const [city, setCity] = React.useState("");
+const [city, setCity] = React.useState({});
 useEffect(() => {
   fetch('/session-data')
-  .then(response => response.text()
+  .then(response => response.json()
   .then(data => {
   setCity(data.city);
   }))
@@ -19,10 +19,10 @@ useEffect(() => {
 }
 
 function getTimezone() {
-  const [timezone, setTimezone] = React.useState("");
+  const [timezone, setTimezone] = React.useState({});
   useEffect(() => {
   fetch('/session-data')
-  .then(response => response.text()
+  .then(response => response.json()
   .then(data => {
   setTimezone(data.timezone);
   }))
