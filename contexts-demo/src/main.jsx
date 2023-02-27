@@ -6,7 +6,8 @@ import {withLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
-let sessionData = fetch('/session-data')
+let sessionData;
+fetch('/session-data')
 .then(response => 
 response.json())
 .then(data => {
