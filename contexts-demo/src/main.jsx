@@ -13,7 +13,7 @@ response.json())
 sessionData = data;
 })
 
-console.log(sessionData.city, sessionData.timezone)
+console.log(sessionData["city"], sessionData["timezone"])
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
@@ -24,8 +24,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: sessionData.city,
-      timezone: sessionData.timezone,
+      city: sessionData["city"],
+      timezone: sessionData["timezone"],
     },
     "device": {
       key: uuid(),
