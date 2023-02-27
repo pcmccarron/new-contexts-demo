@@ -6,15 +6,15 @@ import {withLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
-let city;
-let timezone; 
-fetch('/session-data')
+const sessionData = fetch('/session-data')
 .then(response => 
 response.json())
 .then(data => {
-city = data[1];
-timezone = data[3];
+sessionData = data;
 })
+
+let city = sessionData.city;
+let timezone = sessionData.timezone;
 
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
