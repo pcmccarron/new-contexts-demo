@@ -13,6 +13,8 @@ response.json())
 sessionData = data;
 })
 
+console.log(sessionData.city, sessionData.timezone)
+
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/naming-convention
