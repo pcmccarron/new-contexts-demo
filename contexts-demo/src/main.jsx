@@ -5,7 +5,14 @@ import './index.css'
 import {withLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
-import geo from '../netlify/edge-functions/geo'
+
+let sessionData = fetch('/session-data')
+           .then(response => 
+           response.json())
+
+let city = sessionData[1]
+let timezone = sessionData[3]
+
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
@@ -15,14 +22,8 @@ const LDProvider = withLDProvider({
 		"kind": "multi",
     "session": {
       key: uuid(),
-      city: fetch('/session-data')
-           .then(response => 
-           response.text(city)
-           ),
-      timezone: fetch('/session-data')
-                .then(response =>
-                  response.json(timezone)
-                ),
+      city: city,
+      timezone: timezone,
     },
     "user": {
       key: uuid(),
