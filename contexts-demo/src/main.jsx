@@ -7,6 +7,9 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
+let city = '';
+let timezone = '';
+
 function getCity() {
   fetch('/session-data')
   .then(response => response.json()
@@ -16,10 +19,8 @@ function getCity() {
   }))
 }
 
-let city = '';
 getCity();
 console.log(city);
-
 function getTimezone() {
   fetch('/session-data')
   .then(response => response.json()
@@ -28,8 +29,6 @@ function getTimezone() {
   return timezone;
   }))
 }
-
-let timezone = '';
 getTimezone();
 console.log(timezone);
 
