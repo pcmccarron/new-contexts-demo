@@ -17,6 +17,8 @@ function getCity() {
   }))
 }
 
+const city = getCity();
+
 function getTimezone() {
 let timezone = fetch('/session-data')
   .then(response => response.json()
@@ -27,6 +29,8 @@ let timezone = fetch('/session-data')
   }))
 }
 
+const timezone = getTimezone();
+
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/naming-convention
@@ -36,8 +40,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: getCity(),
-      timezone: getTimezone(),
+      city: city,
+      timezone: timezone,
     },
     "device": {
       key: uuid(),
