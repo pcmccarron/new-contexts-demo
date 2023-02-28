@@ -10,18 +10,18 @@ import {browserName, osName} from 'react-device-detect'
 async function getCity() {
   const res = await fetch('/session-data')
   const data = await res.json()
+  console.log(data.city);
   return data.city
 }
-
-console.log(data.city);
 
 async function getTimezone() {
   const res = await fetch('/session-data')
   const data = await res.json()
+  console.log(data.timezone)
   return data.timezone
 }
 
-console.log(data.timezone)
+
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
