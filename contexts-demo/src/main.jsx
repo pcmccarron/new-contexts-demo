@@ -7,16 +7,18 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-const city = fetch('/session-data')
+let city = fetch('/session-data')
   .then(response => response.json()
   .then(data => {
   city = data.city;
+  console.log(city);
   }))
 
-  const timezone = fetch('/session-data')
+let timezone = fetch('/session-data')
   .then(response => response.json()
   .then(data => {
   timezone = data.timezone;
+  console.log(timezone);
   }))
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
