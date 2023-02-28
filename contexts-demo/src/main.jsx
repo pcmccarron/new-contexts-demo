@@ -29,7 +29,7 @@ let timezone = await getTimezone();
 
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const LDProvider = asyncWithLDProvider({
+const LDProvider = await asyncWithLDProvider({
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/naming-convention
 	clientSideID: import.meta.env.VITE_CLIENT_ID,
 	context: {
