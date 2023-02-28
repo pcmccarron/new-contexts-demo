@@ -8,23 +8,24 @@ import {browserName, osName} from 'react-device-detect'
 
 //get location data
 async function getCity() {
+  const [city, setCity] = useState("");
   await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
-  let city = data.city;
+  setCity(data.city)
   console.log(city);
-  return city;
   }))
+  return city;
 }
 
 async function getTimezone() {
+const [timezone, setTimezone] = useState("");
 await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
-  let timezone = data.timezone;
-  console.log(timezone);
-  return timezone;
+  setTimezone(data.timezone);
   }))
+return timezone;
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
