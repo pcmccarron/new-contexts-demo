@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
@@ -7,27 +7,17 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-export default function getCity() { 
-const [city, setCity] = useState({});
-useEffect(() => {
-  fetch('/session-data')
+const city = fetch('/session-data')
   .then(response => response.json()
   .then(data => {
-  setCity(data.city);
+  city = data.city;
   }))
-})
-}
 
-export default function getTimezone() {
-  const [timezone, setTimezone] = useState({});
-  useEffect(() => {
-  fetch('/session-data')
+  const timezone = fetch('/session-data')
   .then(response => response.json()
   .then(data => {
-  setTimezone(data.timezone);
+  timezone = data.timezone;
   }))
-})
-}
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
@@ -38,8 +28,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: getCity(),
-      timezone: getTimezone(),
+      city: city,
+      timezone: timezone,
     },
     "device": {
       key: uuid(),
@@ -53,7 +43,7 @@ const LDProvider = withLDProvider({
       description: "a randomly generated account number"
     }
 	}
-})(App);
+})();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
