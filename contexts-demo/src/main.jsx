@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
@@ -8,7 +8,7 @@ import {browserName, osName} from 'react-device-detect'
 
 //get location data
 async function getCity() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = React.useState("");
   await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
@@ -19,7 +19,7 @@ async function getCity() {
 }
 
 async function getTimezone() {
-const [timezone, setTimezone] = useState("");
+const [timezone, setTimezone] = React.useState("");
 await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
