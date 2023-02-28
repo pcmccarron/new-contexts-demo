@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import './index.css'
+import App from './App'
 import {asyncWithLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
@@ -54,10 +54,11 @@ const LDProvider = asyncWithLDProvider({
 	}
 })
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.querySelector('#root')).render(
   <React.StrictMode>
     <LDProvider>
+      <App />
     </LDProvider>
   </React.StrictMode>,
 );
-})(App);
+})();
