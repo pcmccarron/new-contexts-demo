@@ -7,8 +7,8 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-function getCity() { 
-const [city, setCity] = React.useState({});
+export default function getCity() { 
+const [city, setCity] = useState({});
 useEffect(() => {
   fetch('/session-data')
   .then(response => response.json()
@@ -18,8 +18,8 @@ useEffect(() => {
 })
 }
 
-function getTimezone() {
-  const [timezone, setTimezone] = React.useState({});
+export default function getTimezone() {
+  const [timezone, setTimezone] = useState({});
   useEffect(() => {
   fetch('/session-data')
   .then(response => response.json()
