@@ -17,9 +17,6 @@ async function getCity() {
   }))
 }
 
-let city = getCity();
-console.log(city);
-
 async function getTimezone() {
 await fetch('/session-data')
   .then(response => response.json()
@@ -30,9 +27,6 @@ await fetch('/session-data')
   }))
 }
 
-let timezone = getTimezone();
-console.log(timezone);
-
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/naming-convention
@@ -42,8 +36,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: city,
-      timezone: timezone,
+      city: getCity(),
+      timezone: getTimezone(),
     },
     "device": {
       key: uuid(),
