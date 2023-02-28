@@ -12,7 +12,6 @@ function getCity() {
   .then(response => response.json()
   .then(data => {
   city = data.city;
-  console.log(city);
   return city;
   }))
 }
@@ -26,7 +25,6 @@ function getTimezone() {
   .then(response => response.json()
   .then(data => {
   timezone = data.timezone;
-  console.log(timezone);
   return timezone;
   }))
 }
