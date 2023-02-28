@@ -56,7 +56,9 @@ const LDProvider = asyncWithLDProvider({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <LDProvider />
+    <LDProvider>
+      < App />
+    </LDProvider>
   </React.StrictMode>,
 );
 })();
