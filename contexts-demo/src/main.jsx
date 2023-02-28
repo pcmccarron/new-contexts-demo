@@ -14,12 +14,16 @@ async function getCity() {
   return data.city
 }
 
+let city = await getCity();
+
 async function getTimezone() {
   const res = await fetch('/session-data')
   const data = await res.json()
   console.log(data.timezone)
   return data.timezone
 }
+
+let timezone = await getTimezone();
 
 
 
@@ -32,8 +36,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: getCity(),
-      timezone: getTimezone(),
+      city: city,
+      timezone: timezone,
     },
     "device": {
       key: uuid(),
