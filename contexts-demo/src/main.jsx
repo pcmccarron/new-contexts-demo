@@ -7,7 +7,7 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-/*async function getCity() {
+async function getCity() {
   await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
@@ -16,25 +16,12 @@ import {browserName, osName} from 'react-device-detect'
   return city;
   }))
 }
-getCity(); */
-
-function getCity() {
-  return new Promise((resolve, reject) => {
-    fetch('/session-data')
-    .then(response => {
-      return response.json();
-    }).then(data => {
-      let city = data.city;
-      resolve(city);
-    })
-  })
-}
 
 let city = '';
 getCity().then(data => {city = data.city});
 console.log(city);
 
-/* async function getTimezone() {
+async function getTimezone() {
   await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
@@ -42,19 +29,6 @@ console.log(city);
   console.log(timezone);
   return timezone;
   }))
-}
-getTimezone(); */
-
-function getTimezone() {
-  return new Promise((resolve, reject) => {
-    fetch('/session-data')
-    .then(response => {
-      return response.json();
-    }).then(data => {
-      let timezone = data.timezone;
-      resolve(timezone);
-    })
-  })
 }
 
 let timezone = '';
