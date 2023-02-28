@@ -13,6 +13,7 @@ async function getCity() {
   .then(data => {
   let city = data.city;
   console.log(city);
+  return city;
   }))
 }
 
@@ -25,6 +26,7 @@ await fetch('/session-data')
   .then(data => {
   let timezone = data.timezone;
   console.log(timezone);
+  return timezone;
   }))
 }
 
