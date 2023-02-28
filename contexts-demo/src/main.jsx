@@ -7,8 +7,8 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-async function getCity() {
-  await fetch('/session-data')
+function getCity() {
+  fetch('/session-data')
   .then(response => response.json()
   .then(data => {
   city = data.city;
@@ -18,11 +18,11 @@ async function getCity() {
 }
 
 let city = '';
-getCity().then(data => {city = data.city});
+getCity();
 console.log(city);
 
-async function getTimezone() {
-  await fetch('/session-data')
+function getTimezone() {
+  fetch('/session-data')
   .then(response => response.json()
   .then(data => {
   timezone = data.timezone;
@@ -32,7 +32,7 @@ async function getTimezone() {
 }
 
 let timezone = '';
-getTimezone().then(data => {timezone = data.timezone});
+getTimezone();
 console.log(timezone);
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
