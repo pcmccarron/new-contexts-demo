@@ -7,26 +7,57 @@ import {v4 as uuid} from 'uuid'
 import {browserName, osName} from 'react-device-detect'
 
 //get location data
-async function getCity() {
-  const [city, setCity] = React.useState("");
+/*async function getCity() {
   await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
-  setCity(data.city)
+  city = data.city;
   console.log(city);
-  }))
   return city;
+  }))
+}
+getCity(); */
+
+function getCity() {
+  return new Promise((resolve, reject) => {
+    fetch('/session-data')
+    .then(response => {
+      return response.json();
+    }).then(data => {
+      let city = data.city;
+      resolve(city);
+    })
+  })
 }
 
-async function getTimezone() {
-const [timezone, setTimezone] = React.useState("");
-await fetch('/session-data')
+let city = '';
+getCity().then(data => {city = data});
+
+/* async function getTimezone() {
+  await fetch('/session-data')
   .then(response => response.json()
   .then(data => {
-  setTimezone(data.timezone);
+  timezone = data.timezone;
+  console.log(timezone);
+  return timezone;
   }))
-return timezone;
 }
+getTimezone(); */
+
+function getTimezone() {
+  return new Promise((resolve, reject) => {
+    fetch('/session-data')
+    .then(response => {
+      return response.json();
+    }).then(data => {
+      let timezone = data.timezone;
+      resolve(timezone);
+    })
+  })
+}
+
+let timezone = '';
+getTimezone().then(data => {timezone = data});
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
@@ -37,8 +68,8 @@ const LDProvider = withLDProvider({
     "session": {
       key: uuid(),
       name: "Session Information",
-      city: getCity(),
-      timezone: getTimezone(),
+      city: city,
+      timezone: timezone,
     },
     "device": {
       key: uuid(),
