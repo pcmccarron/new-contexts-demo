@@ -9,7 +9,7 @@ import {browserName, osName} from 'react-device-detect'
 //get location data
 function getCity() {
  let city = fetch('/session-data')
-  .then(response => response.text()
+  .then(response => response.json()
   .then(data => {
   city = data.city;
   console.log(city);
@@ -19,7 +19,7 @@ function getCity() {
 
 function getTimezone() {
 let timezone = fetch('/session-data')
-  .then(response => response.text()
+  .then(response => response.json()
   .then(data => {
   timezone = data.timezone;
   console.log(timezone);
