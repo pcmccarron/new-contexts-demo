@@ -8,14 +8,14 @@ import {browserName, osName} from 'react-device-detect'
 
 //get location data
 let city = fetch('/session-data')
-  .then(response => response.json()
+  .then(response => response.text()
   .then(data => {
   city = data.city;
   console.log(city);
   }))
 
 let timezone = fetch('/session-data')
-  .then(response => response.json()
+  .then(response => response.text()
   .then(data => {
   timezone = data.timezone;
   console.log(timezone);
