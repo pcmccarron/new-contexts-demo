@@ -32,6 +32,7 @@ function getCity() {
 
 let city = '';
 getCity().then(data => {city = data.city});
+console.log(city);
 
 /* async function getTimezone() {
   await fetch('/session-data')
@@ -58,6 +59,7 @@ function getTimezone() {
 
 let timezone = '';
 getTimezone().then(data => {timezone = data.timezone});
+console.log(timezone);
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = withLDProvider({
