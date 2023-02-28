@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {App} from './App'
+import App from './App'
 import './index.css'
 import {asyncWithLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
@@ -57,8 +57,7 @@ const LDProvider = asyncWithLDProvider({
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <LDProvider>
-      < App />
     </LDProvider>
   </React.StrictMode>,
 );
-})();
+})(App);
