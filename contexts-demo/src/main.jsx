@@ -26,12 +26,21 @@ async function getTimezone() {
 
 let timezone = await getTimezone();
 
+async function getSubdivision() {
+  const res = await fetch('/session-data')
+  const data = await res.json()
+  console.log(data.subdivision.name)
+  return data.subdivision.name
+}
+
+let state = await getSubdivision();
+
 
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = await asyncWithLDProvider({
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/naming-convention
-	clientSideID: import.meta.env.VITE_CLIENT_ID,
+	clientSideID: '636be4b76fb4b61172441197',
 	context: {
 		"kind": "multi",
     "session": {
@@ -39,12 +48,13 @@ const LDProvider = await asyncWithLDProvider({
       name: "Session Information",
       city: city,
       timezone: timezone,
+      state: state
     },
     "device": {
       key: uuid(),
       name: "User Device Information",
       browser: browserName,
-      device: osName,
+      device: osName
     },
     "account": {
       key: uuid(),
