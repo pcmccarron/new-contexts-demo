@@ -61,7 +61,7 @@ function App() {
       <div>
         <MasonryImageList />
       </div>
-      <h1><Clock format={`${dateFormat}` + 'YYYY HH:mm:ss A'} ticking={true} timezone={timezone} /></h1>
+  
       <p> Looks like you're in the <strong>{timezone}</strong> timezone</p>
       <img src ={`https://flagcdn.com/96x72/${country.toLowerCase()}.png`} className="geolocation__flag" alt={`${country}`} />
       </div>
