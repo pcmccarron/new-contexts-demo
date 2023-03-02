@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { useFlags } from 'launchdarkly-react-client-sdk'
 import { Box } from '@mui/system'
-import Clock from 'react-live-clock'
+import Clock from './components/Clocks'
 import { Button, Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -85,7 +85,7 @@ const bull = (
         <MasonryImageList />
       </div>
       <Typography variant="h2">Thanks for joining us from <Typography variant="poster" sx={{ fontWeight: 'bold'}}> {city}</Typography></Typography>
-      <h1><Clock format={`${dateFormat} YYYY ${clockFormat} A`} ticking={true} timezone={timezone} noSsr={true}/></h1>
+      <Clock/>
       <Typography variant="poster_2" sx={{ fontWeight: 'bold'}}>{timezone} timezone</Typography>
       </div>
       <img src ={`https://flagcdn.com/64x48/${country.toLowerCase()}.png`} className="geolocation__flag" alt={`${country}`} style={{paddingTop: 15, paddingBottom: 50}} />
