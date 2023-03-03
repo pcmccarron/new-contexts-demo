@@ -3,7 +3,7 @@ import './App.css'
 import MasonryImageList from './components/Image-gallery'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import { useFlags } from 'launchdarkly-react-client-sdk'
+import { useFlags, useLDClient } from 'launchdarkly-react-client-sdk'
 import { Box } from '@mui/system'
 import Clock from './components/Clocks'
 import { Button, Typography } from '@mui/material'
@@ -20,8 +20,7 @@ function App() {
   const [subdivision, setSubdivision] = useState("")
 
   //gather flag data
-  const {background, dateFormat, clockFormat, browserType} = useFlags();
-  console.log(dateFormat)
+  const {background, browserType} = useFlags();
 
   useEffect(() => { 
 		fetch('/session-data')
@@ -60,6 +59,13 @@ function App() {
 	},
 	}
 })
+
+
+const client = useLDClient();
+function handleClick() {
+  console.log('sending experimentation data');
+  client.track("sdkClickthrough")
+}
 
 // Card themeing
 const bull = (
@@ -109,7 +115,14 @@ const bull = (
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           server-side
         </Typography>
-        <Button variant="text" href="https://docs.launchdarkly.com/sdk/server-side/go">Read Docs</Button>
+        <Button 
+        variant="text" 
+        href="https://docs.launchdarkly.com/sdk/server-side/go" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onClick={handleClick.bind()}>
+          Read Docs
+        </Button>
       </CardContent>
       </Card>
       </Grid>
@@ -128,7 +141,13 @@ const bull = (
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           server-side
         </Typography>
-        <Button variant="text" href="https://docs.launchdarkly.com/sdk/server-side/python">Read Docs</Button>
+        <Button 
+        variant="text" 
+        href="https://docs.launchdarkly.com/sdk/server-side/python" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onClick={handleClick.bind()}>
+          Read Docs</Button>
       </CardContent>
     </Card>
       </Grid>
@@ -147,7 +166,13 @@ const bull = (
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           server-side
         </Typography>
-        <Button variant="text" href="https://docs.launchdarkly.com/sdk/server-side/node-js">Read Docs</Button>
+        <Button 
+        variant="text" 
+        href="https://docs.launchdarkly.com/sdk/server-side/node-js" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onClick={handleClick.bind()}>
+          Read Docs</Button>
       </CardContent>
     </Card>
       </Grid>
@@ -169,7 +194,13 @@ const bull = (
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           client-side
         </Typography>
-        <Button variant="text" href="https://docs.launchdarkly.com/sdk/client-side/react">Read Docs</Button>
+        <Button 
+        variant="text" 
+        href="https://docs.launchdarkly.com/sdk/client-side/react" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onClick={handleClick.bind()}>
+          Read Docs</Button>
       </CardContent>
       </Card>
       </Grid>
@@ -188,7 +219,13 @@ const bull = (
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           client-side
         </Typography>
-        <Button variant="text" href="https://docs.launchdarkly.com/sdk/client-side/ios">Read Docs</Button>
+        <Button 
+        variant="text" 
+        href="https://docs.launchdarkly.com/sdk/client-side/ios" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onClick={handleClick.bind()}>
+          Read Docs</Button>
       </CardContent>
     </Card>
       </Grid>
@@ -207,7 +244,13 @@ const bull = (
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           client-side
         </Typography>
-        <Button variant="text" href="https://docs.launchdarkly.com/sdk/client-side/javascript">Read Docs</Button>
+        <Button 
+        variant="text" 
+        href="https://docs.launchdarkly.com/sdk/client-side/javascript" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onClick={handleClick.bind()}>
+          Read Docs</Button>
       </CardContent>
     </Card>
       </Grid>

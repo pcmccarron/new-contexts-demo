@@ -4,7 +4,7 @@ import './index.css'
 import App from './App'
 import {asyncWithLDProvider} from 'launchdarkly-react-client-sdk'
 import {v4 as uuid} from 'uuid'
-import {browserName, osName} from 'react-device-detect'
+import {browserName, isMobile, osName} from 'react-device-detect'
 
 (async () => {
 //get location data
@@ -44,7 +44,7 @@ const LDProvider = await asyncWithLDProvider({
 	context: {
 		"kind": "multi",
     "session": {
-      key: uuid(),
+      key: "session-data",
       name: "Session Information",
       city: city,
       timezone: timezone,
@@ -54,7 +54,8 @@ const LDProvider = await asyncWithLDProvider({
       key: uuid(),
       name: "User Device Information",
       browser: browserName,
-      device: osName
+      device: osName,
+      isMobile: isMobile
     },
     "account": {
       key: uuid(),
