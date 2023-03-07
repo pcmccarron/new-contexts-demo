@@ -1,0 +1,4 @@
+projects:
+  - key: gh-actions
+    aliases:
+      - type: camelcase
