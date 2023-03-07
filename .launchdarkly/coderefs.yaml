@@ -1,4 +1,4 @@
 projects:
-  - key: gh-actions
+  - key: netlify-demo
     aliases:
       - type: camelcase
