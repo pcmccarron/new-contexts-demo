@@ -1,2 +1,8 @@
 # Local Netlify folder
 .netlify
+.env
+*.tfvars
+*.tfstate
+.terraform
+terraform.tfstate.backup
+.terraform.lock.hcl

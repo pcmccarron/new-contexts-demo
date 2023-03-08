@@ -40,7 +40,7 @@ let state = await getSubdivision();
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const LDProvider = await asyncWithLDProvider({
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/naming-convention
-	clientSideID: '636be4b76fb4b61172441197',
+	clientSideID: import.meta.env.VITE_CLIENT_ID,
 	context: {
 		"kind": "multi",
     "session": {
