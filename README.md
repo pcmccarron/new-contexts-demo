@@ -1,4 +1,4 @@
-### Contexts Demo
+## LaunchDarkly Contexts Demo
 
 Use this repository to deploy a new custom contexts demo. Consists of a React Web Frontend and Netlify Edge Function for gathering geo location. Deploy to Netlify in order for demo to work properly.
 
