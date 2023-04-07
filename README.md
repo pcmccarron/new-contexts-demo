@@ -9,7 +9,7 @@ Use this repository to deploy a new custom contexts demo. Consists of a React We
 
 ### To Set Up
 
-1. Clone the repository and run `npm i`.
+1. Clone the repository and run `npm i` if you want to test locally first.
 2. Build the LaunchDarkly project with Terraform file or use existing one (retrieve client side key)
-3. Connect repository to Netlify, add client side key as env variable, and deploy!
+3. Connect repository to Netlify, add client side key as env variable, set the base directory to `contexts-demo`, and deploy!
 4. Optional: Repository includes Code References Action file, create new secret using Access Token named LD_ACCESS_TOKEN

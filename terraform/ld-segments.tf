@@ -8,7 +8,7 @@ resource "launchdarkly_segment" "mountain_west" {
   rules {
     clauses {
       attribute    = "state"
-      op           = "contains"
+      op           = "in"
       values       = ["Colorado", "Arizona", "New Mexico", "Wyoming", "Montana", "Utah", "Nevada", "Alberta"]
       negate       = false
       context_kind = "session"
@@ -26,7 +26,7 @@ resource "launchdarkly_segment" "pacific_northwest" {
   rules {
     clauses {
       attribute    = "state"
-      op           = "contains"
+      op           = "in"
       values       = ["Washington", "Oregon", "Idaho", "Alaska", "British Columbia", "Northwest Territories", "Yukon", "Nunavut"]
       negate       = false
       context_kind = "session"
@@ -44,7 +44,7 @@ resource "launchdarkly_segment" "midatlantic" {
   rules {
     clauses {
       attribute    = "state"
-      op           = "contains"
+      op           = "in"
       values       = ["Kentucky", "West Virginia", "Virginia", "Maryland", "District of Columbia", "Delaware", "New Jersey", "New York", "Pennsylvania"]
       negate       = false
       context_kind = "session"
@@ -62,7 +62,7 @@ resource "launchdarkly_segment" "south" {
   rules {
     clauses {
       attribute    = "state"
-      op           = "contains"
+      op           = "in"
       values       = ["Texas", "Oklahoma", "Alabama", "Louisiana", "Mississippi", "Tennessee", "Georgia", "Florida", "North Carolina", "South Carolina"]
       negate       = false
       context_kind = "session"
@@ -80,7 +80,7 @@ resource "launchdarkly_segment" "northeast" {
   rules {
     clauses {
       attribute    = "state"
-      op           = "contains"
+      op           = "in"
       values       = ["Massachusetts", "Connecticut", "Rhode Island", "Vermont", "New Hampshire", "Maine", "Quebec", "Prince Edward Island", "Nova Scotia", "Newfoundland and Labrador", "New Brunswick"]
       negate       = false
       context_kind = "session"
@@ -98,7 +98,7 @@ resource "launchdarkly_segment" "midwest" {
   rules {
     clauses {
       attribute    = "state"
-      op           = "contains"
+      op           = "in"
       values       = ["South Dakota", "North Dakota", "Minnesota", "Nebraska", "Kansas", "Missouri", "Arkansas", "Illinois", "Indiana", "Wisconsin", "Michigan", "Ohio", "Ontario", "Saskatchewan", "Manitoba"]
       negate       = false
       context_kind = "session"
@@ -116,7 +116,7 @@ resource "launchdarkly_segment" "west_coast" {
   rules {
     clauses {
       attribute    = "state"
-      op           = "contains"
+      op           = "in"
       values       = ["California", "Hawaii"]
       negate       = false
       context_kind = "session"
